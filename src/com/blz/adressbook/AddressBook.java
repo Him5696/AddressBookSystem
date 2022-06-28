@@ -1,5 +1,6 @@
 package com.blz.adressbook;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBook {
@@ -11,6 +12,9 @@ public class AddressBook {
     static String emailId;
     static long phoneNo;
     static int zipCode;
+    ArrayList<AddressBook> contactDetails=new ArrayList<>();
+    String userWish = "yes";
+    int count = 1;
     private static void getInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the First Name : ");
@@ -20,7 +24,7 @@ public class AddressBook {
         lastName = sc.next();
 
         System.out.print("Enter the Address: ");
-        address = sc.nextLine();
+        address = sc.next();
         address += sc.nextLine();
 
         System.out.print("Enter the City Name : ");
@@ -38,10 +42,8 @@ public class AddressBook {
         System.out.print("Enter the  Phone Number: ");
         phoneNo = sc.nextLong();
     }
-
-    public static void main(String[] args) {
-        System.out.println("Welcome to Address Book Program");
-        AddressBook.getInput();
+    private void displayDetails(AddressBook display){
+        System.out.println("contact" + count);
         System.out.println("First Name: " + firstName);
         System.out.println("Last Name: " + lastName);
         System.out.println("Address: " + address);
@@ -50,5 +52,25 @@ public class AddressBook {
         System.out.println("Email-Id : " + emailId);
         System.out.println("Zip Code : " + zipCode);
         System.out.println("phone Number  : " + phoneNo);
+        count++;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to Address Book Program");
+        AddressBook addressBookMain = new AddressBook();
+        Scanner userInput = new Scanner(System.in);
+        while(addressBookMain.userWish.matches("yes")) {
+            addressBookMain.getInput();
+            addressBookMain.contactDetails.add(addressBookMain);
+            System.out.println("IF YOU WANT TO ADD NEW RECORD PLEASE INSERT " + "yes " + "OR else " + "no");
+            addressBookMain.userWish = userInput.next();
+            if (addressBookMain.userWish == "no")
+            {
+                break;
+            }
+        }
+        for (int i = 0; i < addressBookMain.contactDetails.size(); i++) {
+            addressBookMain.displayDetails(addressBookMain.contactDetails.get(i));
+        }
     }
 }
