@@ -83,6 +83,6 @@ public class ContactPerson {
             }
         }
         else System.out.println("There is no any person address to delete");
-        System.out.println("Record Delete Successfully.......");
+        System.out.println("Record Delete Successfully!! ");
     }
 }
