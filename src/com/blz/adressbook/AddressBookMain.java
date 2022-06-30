@@ -1,4 +1,4 @@
-package com.blz.adressbook.ContactPerson;
+package com.blz.adressbook;
 
 import java.util.ArrayList;
 import java.util.HashMap;

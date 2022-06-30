@@ -1,4 +1,4 @@
-package com.blz.adressbook.ContactPerson;
+package com.blz.adressbook;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +19,7 @@ public class AddressBook {
         // User Choose the Option
 
         while (flag) {
-            System.out.print(" 1 - Add more contact \n2 - Edit Contact \n3 - Delete Person Contact \n4 - Show AddressBook " + "\n0 - for exist \n Enter your choice");
+            System.out.print(" 1 - Add more contact \n2 - Edit Contact \n3 - Delete Person Contact \n4 - Show AddressBook " + "\n0 - for exist \n Enter your choice: ");
             userChoice = sc.nextInt();
 
             switch (userChoice) {
