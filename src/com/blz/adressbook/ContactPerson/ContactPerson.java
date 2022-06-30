@@ -1,7 +1,7 @@
 package com.blz.adressbook.ContactPerson;
 
 import java.util.ArrayList;
-
+import java.util.Map;
 import java.util.Scanner;
 
 public class ContactPerson {
@@ -15,23 +15,26 @@ public class ContactPerson {
     int zipCode;
     int count = 1;
 
+    public void ContactPerson() {
+    }
+
     // Display User Details
     public void addressBook(ArrayList<ContactPerson> contactPerson) {
         for (int i = 0; i < contactPerson.size(); i++) {
             System.out.println("contact" + count);
-            System.out.println("First Name: " + contactPerson.get(i).firstName);
-            System.out.println("Last Name: " + contactPerson.get(i).lastName);
-            System.out.println("Address: " + contactPerson.get(i).address);
+            System.out.println("First Name: " +contactPerson.get(i).firstName);
+            System.out.println("Last Name: " +contactPerson.get(i). lastName);
+            System.out.println("Address: " +contactPerson.get(i). address);
             System.out.println("City Name : " + contactPerson.get(i).city);
-            System.out.println("State Name : " + contactPerson.get(i).state);
+            System.out.println("State Name : " +contactPerson.get(i). state);
             System.out.println("Email-Id : " + contactPerson.get(i).emailId);
             System.out.println("Zip Code : " + contactPerson.get(i).zipCode);
-            System.out.println("phone Number : " + contactPerson.get(i).phoneNo);
+            System.out.println("phone Number Name : " + contactPerson.get(i).phoneNo);
             count++;
         }
     }
 
-    //  Update the Contact Details
+    //          Update the Contact Details
     public void updateData(String name, ArrayList<ContactPerson> contactDetails) {
         for (int i = 0; i < contactDetails.size(); i++) {
             if (name.equals(contactDetails.get(i).firstName)) {
@@ -39,40 +42,40 @@ public class ContactPerson {
                 contactDetails.add(i, getInput());
             }
         }
-        System.out.println("Record Update Successfully.......");
+        System.out.println("Record Update Successfully");
     }
 
     // Creating function to get user Input
 
     public ContactPerson getInput() {
-        ContactPerson addressBookMain = new ContactPerson();
+        ContactPerson contactPersonDetails = new ContactPerson();
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the First Name : ");
-        addressBookMain.firstName = sc.next();
+        contactPersonDetails.firstName = sc.next();
 
         System.out.print("Enter the Last Name : ");
-        addressBookMain.lastName = sc.next();
+        contactPersonDetails.lastName = sc.next();
 
         System.out.print("Enter the Address: ");
-        addressBookMain.address = sc.next();
-        addressBookMain.address += sc.nextLine();
+        contactPersonDetails.address = sc.next();
 
         System.out.print("Enter the City Name : ");
-        addressBookMain.city = sc.next();
+        contactPersonDetails.city = sc.next();
 
         System.out.print("Enter the state Name : ");
-        addressBookMain.state = sc.next();
+        contactPersonDetails.state = sc.next();
 
         System.out.print("Enter the Email-Id : ");
-        addressBookMain.emailId = sc.next();
+        contactPersonDetails.emailId = sc.next();
 
         System.out.print("Enter the Zip Code : ");
-        addressBookMain.zipCode = sc.nextInt();
+        contactPersonDetails.zipCode = sc.nextInt();
 
         System.out.print("Enter the  Phone Number: ");
-        addressBookMain.phoneNo = sc.nextLong();
-        return addressBookMain;
+        contactPersonDetails.phoneNo = sc.nextLong();
+        return contactPersonDetails;
     }
+    //   Delete the Contact Details
     public void deleteRecord(String name, ArrayList<ContactPerson> contactDetails) {
         if(contactDetails.size()>0) {
             for (int i = 0; i < contactDetails.size(); i++) {
@@ -83,6 +86,27 @@ public class ContactPerson {
             }
         }
         else System.out.println("There is no any person address to delete");
-        System.out.println("Record Delete Successfully!! ");
+        System.out.println("Record Delete Successfully");
+    }
+
+    public void getAddressbook(Map<String, ContactPerson> addressBookHashMap) {
+        for(String addressbook:addressBookHashMap.keySet()){
+            System.out.println("Person contact for the "+addressbook+" is "+addressBookHashMap.get(addressbook).toString());
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "ContactPersonDetails{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", address='" + address + '\'' +
+                ", emailId='" + emailId + '\'' +
+                ", phoneNo=" + phoneNo +
+                ", zipCode=" + zipCode +
+                ", count=" + count +
+                '}';
     }
 }
